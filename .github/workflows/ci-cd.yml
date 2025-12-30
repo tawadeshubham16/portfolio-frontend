@@ -8,7 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  SWARM_SERVICE: portfolio-frontend
+  SWARM_SERVICE: portfolio_portfolio_frontend
 
 jobs:
   build-and-push:
