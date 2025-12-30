@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <h1 class="text-3xl font-bold underline">
-        Portfolio Home
+        Portfolio Home Page
       </h1>
     </>
   )
