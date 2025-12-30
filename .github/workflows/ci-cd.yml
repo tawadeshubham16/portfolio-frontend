@@ -69,7 +69,7 @@ jobs:
       - name: Add swarm host to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.SWARM_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -p ${{ secrets.SWARM_SSH_PORT }} -H ${{ secrets.SWARM_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to Docker Swarm
         env:
