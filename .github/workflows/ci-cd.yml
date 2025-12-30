@@ -75,12 +75,13 @@ jobs:
         env:
           HOST: ${{ secrets.SWARM_HOST }}
           USER: ${{ secrets.SWARM_USER }}
+          PORT: ${{ secrets.SWARM_SSH_PORT }}
           IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
           SERVICE: ${{ env.SWARM_SERVICE }}
           GHCR_USER: ${{ github.actor }}
           GHCR_TOKEN: ${{ secrets.DEPLOY_GHCR_TOKEN }}
         run: |
-          ssh ${USER}@${HOST} <<EOF
+          ssh -p ${PORT} ${USER}@${HOST} <<EOF
             set -e
             echo "${GHCR_TOKEN}" | docker login ghcr.io -u "${GHCR_USER}" --password-stdin
             docker pull "${IMAGE}"
